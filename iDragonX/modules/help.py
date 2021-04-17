@@ -7,7 +7,7 @@ HELP.update(
     {
         "**Admin**": "ban, unban, promote, demote, kick, mute, unmute, pin, purge, del, invite",
         "**Alive**": "alive, ping",
-        "**Info**": "whois, id"
+        "**Info**": "whois, id",
         "**Term**": "eval, term",
         "**Misc**": "paste, tr, qbot, rmbg, zip, unzip",
         "**Sticker**": "kang, stickerinfo",
