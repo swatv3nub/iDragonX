@@ -4,16 +4,16 @@ import aiohttp
 from pyrogram import filters
 from pyrogram.types import Message
 from iDragonX import app, CMD_HELP
-from config import PREFIX as pf
+from config import PREFIX
 
 CMD_HELP.update(
     {
         "Misc": f"""
 『 **• Misc** 』
-  `{pf}paste` -> Paste replied content to nekobin.com.
-  `{pf}tr` [lang code] -> Transalte a text to a given language.
-  `{pf}whois` [user handle] -> Provides information about the user.
-  `{pf}id` [user handle] -> Give user or chat id
+  `{PREFIX}paste` -> Paste replied content to nekobin.com.
+  `{PREFIX}tr` [lang code] -> Transalte a text to a given language.
+  `{PREFIX}whois` [user handle] -> Provides information about the user.
+  `{PREFIX}id` [user handle] -> Give user or chat id
 """
     }
 )
