@@ -263,25 +263,3 @@ async def fedstat_conversation_hack(client, message):
             conversation_hack[identifier] = message.text
             await client.read_history(message.chat.id, message.message_id)
 
-help_dict['einfo'] = ('External Info',
-'''{prefix}externalinfo <i>&lt;user&gt;</i> - Get extended info of <i>&lt;user&gt;</i>
-{prefix}externalinfo <i>(as reply to message)</i> - Get extended info of replied user
-Aliases: {prefix}extinfo, {prefix}einfo
-
-{prefix}spamwatch <i>&lt;user&gt;</i> - Get SpamWatch info of <i>&lt;user&gt;</i>
-{prefix}spamwatch <i>(as reply to message)</i> - Get SpamWatch info of replied user
-Aliases: {prefix}sw
-
-{prefix}cas <i>&lt;user&gt;</i> - Get Combot Anti Spam info of <i>&lt;user&gt;</i>
-{prefix}cas <i>(as reply to message)</i> - Get Combot Anti Spam info of replied user
-Aliases: {prefix}combot
-
-{prefix}rose <i>&lt;user&gt;</i> - Get Rose Support Federation info of <i>&lt;user&gt;</i>
-{prefix}rose <i>(as reply to message)</i> - Get Rose Support Federation info of replied user
-
-{prefix}deai <i>&lt;user&gt;</i> - Get DEAI info of <i>&lt;user&gt;</i>
-{prefix}deai <i>(as reply to message)</i> - Get DEAI info of replied user
-
-{prefix}spamprotection <i>&lt;user&gt;</i> - Get Spam Protection info of <i>&lt;user&gt;</i>
-{prefix}spamprotection <i>(as reply to message)</i> - Get Spam Protection info of replied user
-Aliases: {prefix}spb''')
