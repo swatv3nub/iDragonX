@@ -55,9 +55,9 @@ def get_readable_time(seconds: int) -> str:
 async def alive(_, m):
     start_time = time.time()
     uptime = get_readable_time((time.time() - StartTime))
-    text = "**• iDragonX • is Alive!**"
-    photo = ""
-    await m.reply_text(text, parse_mode="markdown")
+    text = "**• iDragonX • is Alive & Kickin!**"
+    photo = "https://telegra.ph/file/7dfae97f77c028e5d1d7a.jpg"
+    await m.reply_photo(photo=photo, caption=text, parse_mode="markdown")
 
 
 @app.on_message(filters.command("ping", PREFIX) & filters.me)
