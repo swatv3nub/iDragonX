@@ -12,7 +12,7 @@ CMD_HELP.update(
     {
         "Music": f"""
 『 **• Music** 』
-  `{PREFIX}yt` -> Search For Songs in YouTube!
+  `{PREFIX}song` -> Search For Songs in YouTube!
   `{PREFIX}deez` -> Search For Song in Deezer!
 """
     }
