@@ -1,6 +1,6 @@
 import shutil
 import os
-from iDragonX import app
+from iDragonX import app, CMD_HELP
 from pyrogram import filters
 from config import PREFIX
 
