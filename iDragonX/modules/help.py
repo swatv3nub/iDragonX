@@ -11,7 +11,7 @@ HELP.update(
         "**Term**": "eval, term",
         "**Misc**": "paste, tr, qbot, rmbg, zip, unzip",
         "**Sticker**": "kang, stickerinfo",
-        "**Music**": "yt, deez",
+        "**Music**": "song, deez, lyrics",
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
     }
 )
