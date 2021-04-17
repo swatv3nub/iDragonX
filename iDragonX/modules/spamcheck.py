@@ -111,7 +111,7 @@ DEAI:
 {deai}
 
 Anonymous Army:
-{aa}
+{anon}
 
 Sibyl System:
 {sibyl}
