@@ -4,7 +4,7 @@ import os
 from pytube import YouTube
 from youtubesearchpython import VideosSearch
 from iDragonX.helpers.pyrohelper import get_arg
-from iDragonX import app, arq
+from iDragonX import app, arq, CMD_HELP
 from config import PREFIX
 
 CMD_HELP.update(
