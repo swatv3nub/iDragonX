@@ -2,9 +2,12 @@ import re
 import html
 import asyncio
 import datetime
+import aiohttp
 from pyrogram import Client, filters
 from iDragonX import app, CMD_HELP, get_entity
-from config import SESSION as session, PREFIX, SPAMWATCH_API
+from config import PREFIX, SPAMWATCH_API
+
+session = aiohttp.ClientSession()
 
 CMD_HELP.update(
     {
@@ -88,13 +91,13 @@ async def fedstat(client, message):
     elif command == 'rose':
         await message.reply_text(f'Rose Support:\n{await get_rose(client, entity)}')
     elif command in ('aa', 'anon'):
-        await message.reply_text(f'Anonymous Army:\n{await get_aa(client, entity)}')
+        await message.reply_text(f'Anonymous Army:\n{await get_anon(client, entity)}')
     elif command == 'sibyl':
         await message.reply_text(f'Sibyl System:\n{await get_sibyl(client, entity)}')
     elif command in ('cas', 'combot'):
         await message.reply_text(f'CAS:\n{await get_cas(entity)}')
     else:
-        spamwatch, deai, cas, spam_protection, rose, aa, sibyl = await asyncio.gather(get_spamwatch(entity), get_deai(client, entity), get_cas(entity), get_spam_protection(entity), get_rose(client, entity), get_aa(client, entity), get_sibyl(client, entity))
+        spamwatch, deai, cas, spam_protection, rose, anon, sibyl = await asyncio.gather(get_spamwatch(entity), get_deai(client, entity), get_cas(entity), get_spam_protection(entity), get_rose(client, entity), get_anon(client, entity), get_sibyl(client, entity))
         await message.reply_text(f'''SpamWatch:
 {spamwatch}
 

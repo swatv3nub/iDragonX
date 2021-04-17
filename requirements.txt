@@ -7,6 +7,8 @@ motor
 dnspython
 requests
 asyncio
+aiohttp
+aiofiles
 pillow
 GitPython
 heroku3

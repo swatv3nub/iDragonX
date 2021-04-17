@@ -13,7 +13,7 @@ CMD_HELP.update(
         "Term": f"""
 『 **• Term** 』
   `{PREFIX}eval` -> A nice tool to test python codes.
-  `{PREFIX}term` -> Run commands in shell.
+  `{PREFIX}sh` -> Run commands in shell.
 """
     }
 )
@@ -77,7 +77,7 @@ async def evaluate(client, message):
         await status_message.edit(final_output)
 
 
-@app.on_message(filters.command("term", PREFIX) & filters.me)
+@app.on_message(filters.command(["term", "sh"], PREFIX) & filters.me)
 async def terminal(client, message):
     if len(message.text.split()) == 1:
         await message.edit("Usage: `.term echo owo`")
