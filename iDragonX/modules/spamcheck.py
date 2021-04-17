@@ -3,7 +3,7 @@ import html
 import asyncio
 import datetime
 from pyrogram import Client, filters
-from iDragonX import app, CMD_HELP
+from iDragonX import app, CMD_HELP, get_entity
 from config import SESSION as session, PREFIX, SPAMWATCH_API
 
 CMD_HELP.update(
