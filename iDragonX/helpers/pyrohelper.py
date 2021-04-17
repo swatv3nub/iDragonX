@@ -28,3 +28,14 @@ def get_args(message):
     except ValueError:
         return message  # Cannot split, let's assume that it's just one long message
     return list(filter(lambda x: len(x) > 0, split))
+
+def ReplyCheck(message):
+    reply_id = None
+
+    if mesaage.reply_to_message:
+        reply_id = message.reply_to_message.message_id
+
+    elif not message.from_user.is_self:
+        reply_id = message.message_id
+
+    return reply_id
