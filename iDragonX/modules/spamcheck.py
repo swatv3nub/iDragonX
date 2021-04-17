@@ -147,7 +147,7 @@ async def get_rose(client, entity):
         return text
     return '- <b>404:</b> Not Found'
     
-async def get_aa(client, entity):
+async def get_anon(client, entity):
     new_message = await client.send_message('missrose_bot', f'/fbanstat {entity} 21029270-28da-425c-9a4a-8f0514624ef0')
     identifier = (new_message.chat.id, new_message.message_id)
     conversation_hack[identifier] = None
