@@ -5,7 +5,7 @@ from removebg import RemoveBg
 from iDragonX import app
 from pyrogram import filters
 from config import PREFIX, RMBG_API
-from iDragonX.helpers.pyrohelpers import ReplyCheck
+from iDragonX.helpers.pyrohelper import ReplyCheck
 
 
 @app.on_message(filters.me & filters.command("rmbg", PREFIX))
