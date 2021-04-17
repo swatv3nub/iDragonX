@@ -10,14 +10,14 @@ from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.errors import YouBlockedUser, StickersetInvalid
 from iDragonX.helpers.pyrohelper import get_args
 from iDragonX import app, CMD_HELP
-from config import PREFIX as pf
+from config import PREFIX
 
 CMD_HELP.update(
     {
         "Sticker": f"""
 『 **• Sticker** 』
-  `{pf}kang` -> kangs stickers or creates new ones".
-  `{pf}stkrinfo` -> Get sticker pack info.
+  `{PREFIX}kang` -> kangs stickers or creates new ones".
+  `{PREFIX}stickerinfo` -> Get sticker pack info.
 """
     }
 )
@@ -70,7 +70,7 @@ async def kang(client, message):
         ):
             emoji_ = None
         if not emoji_:
-            emoji_ = "🤔"
+            emoji_ = "😆"
 
         u_name = user.username
         if u_name:
