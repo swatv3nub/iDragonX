@@ -1,0 +1,16 @@
+TgCrypto
+pyrogram
+pyromod
+aiohttp==3.6.2
+google_trans_new
+motor
+dnspython
+requests
+asyncio
+pillow
+GitPython
+heroku3
+python-arq
+psycopg2
+youtube-search-python
+pytube
