@@ -15,7 +15,7 @@ CMD_HELP.update(
     {
         "Music": f"""
 『 **• Music** 』
-  `{PREFIX}song` -> Search For Songs in YouTube!
+  `{PREFIX}yt` -> Search For Songs in YouTube!
   `{PREFIX}deez` -> Search For Song in Deezer!
   `{PREFIX}lyrics` -> Search for Song Lyrics!
 """
@@ -44,7 +44,7 @@ async def download_song(url):
 
 is_downloading = False
 
-@app.on_message(filters.me & filters.command("song", PREFIX))
+@app.on_message(filters.me & filters.command(["song", "yt"], PREFIX))
 async def song(_, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
