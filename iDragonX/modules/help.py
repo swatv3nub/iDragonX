@@ -5,13 +5,13 @@ from iDragonX.helpers.pyrohelper import get_arg
 
 HELP.update(
     {
-        "**Admin**": "ban, unban, promote, demote, kick, mute, unmute, pin, purge, del, invite",
+        "**Admin**": "ban, unban, promote, demote, kick, mute, unmute, pin, purge, del, invite, delghosts",
         "**Alive**": "alive, ping",
         "**Info**": "whois, id",
-        "**Term**": "eval, term",
-        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip",
+        "**Term**": "eval, sh",
+        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open",
         "**Sticker**": "kang, stickerinfo",
-        "**Music**": "song, deez, lyrics",
+        "**Music**": "yt, deez, lyrics",
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
     }
 )
