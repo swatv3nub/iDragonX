@@ -16,7 +16,7 @@ CMD_HELP.update(
 )
 
 @app.on_message(
-    filters.command("encode", PREFIX))
+    filters.command("encode", PREFIX) & filters.me)
 async def encode(_, message):
     if not message.reply_to_message:
         await message.reply_text("Reply to a Message!")
@@ -26,7 +26,7 @@ async def encode(_, message):
         out = str(pybase64.b64encode(bytes(inputz, "utf-8")))[2:-1]
         await message.reply_text(f"**Encoded in Base64** : `{out}`", parse_mode="markdown")
         
-@app.on_message(filters.command("decode", PREFIX))
+@app.on_message(filters.command("decode", PREFIX) & filters.me)
 async def decode(_, message):
     if not message.reply_to_message:
         await message.reply_text("Reply to a Message!")
