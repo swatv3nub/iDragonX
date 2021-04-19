@@ -27,7 +27,7 @@ async def encode(_, message):
         await message.reply_text(f"**Encoded in Base64** : `{out}`", parse_mode="markdown")
         
 @app.on_message(filters.command("decode", PREFIX))
-async def decode(_, messags):
+async def decode(_, message):
     if not message.reply_to_message:
         await message.reply_text("Reply to a Message!")
         return
