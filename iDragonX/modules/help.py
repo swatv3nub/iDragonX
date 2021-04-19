@@ -9,7 +9,7 @@ HELP.update(
         "**Alive**": "alive, ping",
         "**Info**": "whois, id",
         "**Term**": "eval, sh",
-        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open",
+        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, encode, decode",
         "**Sticker**": "kang, stickerinfo",
         "**Music**": "yt, deez, lyrics",
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
