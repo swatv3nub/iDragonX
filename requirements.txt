@@ -17,3 +17,4 @@ psycopg2
 youtube-search-python
 pytube
 removebg
+pybase64
