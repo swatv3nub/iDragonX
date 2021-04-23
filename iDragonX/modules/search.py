@@ -5,7 +5,7 @@ from search_engine_parser import GoogleSearch
 from pyrogram.types import Message
 from requests import get
 
-@app.on_message(filters.command("go", PREFI ))
+@app.on_message(filters.command("go", PREFIX))
 @capture_err
 async def google(_, message: Message):
     try:
