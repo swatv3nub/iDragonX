@@ -9,7 +9,7 @@ p = 0
 
 
 @app.on_message(filters.command("qbot", PREFIX) & filters.me)
-async def quotly(_, m):
+async def quotly(_, message):
     if not message.reply_to_message:
         await message.edit_text("Reply to any users text message")
         return
