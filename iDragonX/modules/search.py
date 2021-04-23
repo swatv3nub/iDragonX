@@ -58,7 +58,7 @@ async def stack(_, message: Message):
 # Github [This is also a google search with some added args]
 
 
-@app.on_message(filters.command("git", PERFIX))
+@app.on_message(filters.command("git", PREFIX))
 async def github(_, message: Message):
     try:
         if len(message.command) < 2:
