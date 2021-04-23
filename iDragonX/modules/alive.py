@@ -57,7 +57,7 @@ async def alive(_, m):
     uptime = get_readable_time((time.time() - StartTime))
     text = "**• iDragonX • is Alive & Kickin!**"
     photo = "https://telegra.ph/file/7dfae97f77c028e5d1d7a.jpg"
-    await m.reply_photo(photo=photo, caption=text, parse_mode="markdown")
+    await m.reply_text(text, parse_mode="markdown")
 
 
 @app.on_message(filters.command("ping", PREFIX) & filters.me)
