@@ -9,6 +9,8 @@ asyncio
 aiohttp
 aiofiles
 pillow
+search_engine_parser
+wget
 tswift
 GitPython
 heroku3
