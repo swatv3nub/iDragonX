@@ -6,7 +6,6 @@ from pyrogram.types import Message
 from requests import get
 
 @app.on_message(filters.command("go", PREFIX))
-@capture_err
 async def google(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -33,7 +32,6 @@ async def google(_, message: Message):
 
 
 @app.on_message(filters.command("sof", PREFIX))
-@capture_err
 async def stack(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -61,7 +59,6 @@ async def stack(_, message: Message):
 
 
 @app.on_message(filters.command("git", PERFIX))
-@capture_err
 async def github(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -85,7 +82,6 @@ async def github(_, message: Message):
         await message.reply_text(str(e))
 
 @app.on_message(filters.command("reddit", PREFIX))
-@capture_err
 async def reddit(_, message):
     if len(message.command) != 2:
         await message.reply_text("/reddit needs an argument")
@@ -106,7 +102,6 @@ async def reddit(_, message):
         await message.reply_text(str(e))
 
 @app.on_message(filters.command("define", PREFIX))
-@capture_err
 async def urbandict(_, message):
     if len(message.command) < 2:
         await message.reply_text("/define Needs An Argument.")
