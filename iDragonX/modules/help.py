@@ -12,6 +12,7 @@ HELP.update(
         "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, encode, decode",
         "**Sticker**": "kang, stickerinfo",
         "**Music**": "yt, deez, lyrics",
+        "**Search**": "go, sof, git, reddit, define"
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
     }
 )
