@@ -1,4 +1,3 @@
- -0,0 +1,80 @@
 FROM python:3.9.1-slim-buster
 
 ENV PIP_NO_CACHE_DIR 1
