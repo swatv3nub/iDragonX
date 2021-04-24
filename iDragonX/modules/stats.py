@@ -1,19 +1,11 @@
 import asyncio
 import time 
-from pyrogram.types import Message, ChatPermissions
+from pyrogram.types import ChatPermissions
 from pyrogram import filters
 from pyrogram.errors import FloodWait, UserNotParticipant
 from iDragonX import app, CMD_HELP
 from config import PREFIX
 
-CMD_HELP.update(
-    {
-        "Commands": f"""
-『 **• Stats** 』
-  `{PREFIX}stats` -> fetchs stats.
-"""
-    }
-)
 
 async def mention_html(name: str, user_id: int) -> str:
     """Mention user in html format."""
@@ -21,9 +13,9 @@ async def mention_html(name: str, user_id: int) -> str:
     return f'<a href="tg://user?id={user_id}">{name}</a>'
 
 @app.on_message(filters.command(["stats", "stat"], PREFIX) & filters.me)
-async def getstats(_, message: Message):
-    await message.edit(
-        "<b>Fetching stats...</b>"
+async def getstats(_, message):
+    x = await message.reply_text(
+        "**Fetching stats...**"
     )
     owner = await app.get_me()
     gmen = mention_html(owner.id, owner.first_name)
@@ -72,21 +64,15 @@ async def getstats(_, message: Message):
         await asyncio.sleep(e.x + 5)
 
     results = f"""
-<b><u>Stats:</u></b>
-Total User:  <b>{gmen}</b>
-<b>Private Chats:</b> <code>{private_chats}</code><code>
-• Users: {gays_}
-• Bots: {samx}</code>
-<b>Groups:</b> <code>{fkg}</code>
-<b>Channels:</b> <code>{fkc}</code>
-<b>Admin in Groups:</b> <code>{fkg_a}</code><code>
-• Creator: {fkg_o}
-• Admin Rights: {fkg_a - fkg_o}</code>
-<b>Admin in Channels:</b> <code>{fkc_a}</code><code>
-• Creator: {fkc_o}
-• Admin Rights: {fkc_a - fkc_o}</code>
-<b>Unread Messages:</b> <code>{ffm}</code>
-<b>Unread Mentions:</b> <code>{fmu}</code>
-"""
-    await message.edit(results)
+**• Stats •**
 
+**• Total User:** `{gmen}`
+**• Private Chats:** `{private_chats}``
+**• Groups:** `{fkg}`
+**• Channels:** `{fkc}`
+**• Admin in Groups:** `{fkg_a}``
+**• Admin in Channels:** `{fkc_a}``
+**• Unread Messages:** `{ffm}`
+**• Unread Mentions:** `{fmu}`
+"""
+    await x.exit_text(results)
