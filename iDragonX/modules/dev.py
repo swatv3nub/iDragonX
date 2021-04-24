@@ -5,7 +5,7 @@ import os
 import re
 import subprocess
 from io import StringIO
-from iDragonX import app, CMD_HELP
+from iDragonX import app, teleapp, CMD_HELP
 from telethon import events, TelegramClient
 from pyrogram import filters
 
