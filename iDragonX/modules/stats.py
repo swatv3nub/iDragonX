@@ -32,15 +32,15 @@ async def getstats(_, message):
     fkc_o = 0
     try:
         async for dialog in app.iter_dialogs():
-            unread_mentions += dialog.unread_mentions_count
-            unread_msg += dialog.unread_messages_count
+            fmu += dialog.unread_mentions_count
+            ffm += dialog.unread_messages_count
             chat_type = dialog.chat.type
             if chat_type in ["bot", "private"]:
                 private_chats += 1
                 if chat_type == "bot":
-                    bots += 1
+                    samx += 1
                 else:
-                    users_ += 1
+                    gays_ += 1
             else:
                 try:
                     is_admin = await admin_check(dialog.chat.id, owner.id)
@@ -51,15 +51,15 @@ async def getstats(_, message):
                 if chat_type in ["group", "supergroup"]:
                     groups += 1
                     if is_admin:
-                        groups_admin += 1
+                        fkg_a += 1
                     if is_creator:
-                        groups_creator += 1
+                        fkg_o += 1
                 else:  # Channel
                     channels += 1
                     if is_admin:
-                        channels_admin += 1
+                        fkc_a += 1
                     if is_creator:
-                        channels_creator += 1
+                        fkc_o += 1
     except FloodWait as e:
         await asyncio.sleep(e.x + 5)
 
