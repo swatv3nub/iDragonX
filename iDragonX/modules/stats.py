@@ -12,6 +12,11 @@ async def mention_html(name: str, user_id: int) -> str:
     name = escape(name)
     return f'<a href="tg://user?id={user_id}">{name}</a>'
 
+async def admin_check(chat_id: int, user_id: int) -> bool:
+    omk = await userge.get_chat_member(chat_id, user_id)
+    done = ["creator", "administrator"]
+    return omk.status in done
+
 @app.on_message(filters.command(["stats", "stat"], PREFIX) & filters.me)
 async def getstats(_, message):
     await message.edit_text(
