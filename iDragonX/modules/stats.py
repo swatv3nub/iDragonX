@@ -23,7 +23,6 @@ async def getstats(_, message):
         "**Fetching stats...**"
     )
     owner = await app.get_me()
-    gmen = mention_html(owner.id, owner.first_name)
     fmu = 0
     ffm = 0
     private_chats = 0
@@ -71,7 +70,6 @@ async def getstats(_, message):
     results = f"""
 **• Stats •**
 
-**• Total User:** `{gmen}`
 **• Private Chats:** `{private_chats}``
 **• Groups:** `{fkg}`
 **• Channels:** `{fkc}`
