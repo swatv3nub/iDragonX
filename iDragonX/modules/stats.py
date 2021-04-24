@@ -14,7 +14,7 @@ async def mention_html(name: str, user_id: int) -> str:
 
 @app.on_message(filters.command(["stats", "stat"], PREFIX) & filters.me)
 async def getstats(_, message):
-    x = await message.reply_text(
+    x = await message.edit_text(
         "**Fetching stats...**"
     )
     owner = await app.get_me()
