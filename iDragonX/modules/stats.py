@@ -53,13 +53,13 @@ async def getstats(_, message):
                     is_admin = False
                     is_creator = False
                 if chat_type in ["group", "supergroup"]:
-                    groups += 1
+                    fkg += 1
                     if is_admin:
                         fkg_a += 1
                     if is_creator:
                         fkg_o += 1
                 else:  # Channel
-                    channels += 1
+                    fkc += 1
                     if is_admin:
                         fkc_a += 1
                     if is_creator:
