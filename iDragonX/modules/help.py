@@ -8,7 +8,7 @@ HELP.update(
         "**Admin**": "ban, unban, promote, demote, kick, mute, unmute, pin, purge, del, invite, delghosts",
         "**Alive**": "alive, ping",
         "**Info**": "whois, id",
-        "**Term**": "eval, sh",
+        "**Term**": "eval, evalx, sh",
         "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, encode, decode",
         "**Sticker**": "kang, stickerinfo",
         "**Music**": "yt, deez, lyrics",
