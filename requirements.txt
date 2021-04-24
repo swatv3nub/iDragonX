@@ -1,5 +1,7 @@
 TgCrypto
+cryptg
 pyrogram
+telethon
 pyromod
 google_trans_new
 motor
