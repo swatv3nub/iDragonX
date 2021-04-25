@@ -3,5 +3,3 @@ build:
      worker: Dockerfile       
 run:
    worker: python3 -m iDragonX
-run:
-   worker: python3 -m iDragonXTele
