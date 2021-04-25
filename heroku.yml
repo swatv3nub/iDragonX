@@ -1,7 +1,6 @@
 build:
-  docker
-     worker: Dockerfile
-        
+  docker:
+     worker: Dockerfile       
 run:
    worker: python3 -m iDragonX
 run:
