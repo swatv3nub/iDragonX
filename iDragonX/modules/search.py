@@ -5,7 +5,7 @@ from search_engine_parser import GoogleSearch
 from pyrogram.types import Message
 from requests import get
 
-@app.on_message(filters.command("go", PREFIX))
+@app.on_message(filters.command("go", PREFIX) & filters.me)
 async def google(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -31,7 +31,7 @@ async def google(_, message: Message):
 # StackOverflow [This is also a google search with some added args]
 
 
-@app.on_message(filters.command("sof", PREFIX))
+@app.on_message(filters.command("sof", PREFIX) & filters.me)
 async def stack(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -58,7 +58,7 @@ async def stack(_, message: Message):
 # Github [This is also a google search with some added args]
 
 
-@app.on_message(filters.command("git", PREFIX))
+@app.on_message(filters.command("git", PREFIX) & filters.me)
 async def github(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -81,7 +81,7 @@ async def github(_, message: Message):
     except Exception as e:
         await message.reply_text(str(e))
 
-@app.on_message(filters.command("reddit", PREFIX))
+@app.on_message(filters.command("reddit", PREFIX) & filters.me)
 async def reddit(_, message):
     if len(message.command) != 2:
         await message.reply_text("/reddit needs an argument")
@@ -101,7 +101,7 @@ async def reddit(_, message):
         print(str(e))
         await message.reply_text(str(e))
 
-@app.on_message(filters.command("define", PREFIX))
+@app.on_message(filters.command("define", PREFIX) & filters.me)
 async def urbandict(_, message):
     if len(message.command) < 2:
         await message.reply_text("/define Needs An Argument.")
