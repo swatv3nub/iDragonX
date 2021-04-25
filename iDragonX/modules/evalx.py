@@ -2,10 +2,10 @@ import io
 import sys
 import traceback
 from telethon import events, TelegramClient
-from iDragonXTele import app
+from iDragonX import teleapp
 from config import PREFIX
 
-@app.on(events.NewMessage(outgoing=True, pattern=f"^{PREFIX}evalx (.*)"))
+@teleapp.on(events.NewMessage(outgoing=True, pattern=f"^{PREFIX}evalx (.*)"))
 async def t_eval(event):
     if event.fwd_from:
         return
