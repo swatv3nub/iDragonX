@@ -79,4 +79,3 @@ RUN pip install --upgrade -r requirements.txt
 
 CMD ["python3", "-m", "iDragonX"]
 
-CMD ["python3", "-m", "iDragonXTele"]
