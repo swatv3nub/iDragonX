@@ -5,8 +5,8 @@ from telethon import events, TelegramClient
 from iDragonX import teleapp
 from config import PREFIX
 
-@teleapp.on(events.NewMessage(outgoing=True, pattern=f"^{PREFIX}evalx (.*)"))
-async def t_eval(event):
+@teleapp.on(events.NewMessage(outgoing=True, pattern=f"^{PREFIX}evalx ?(.*)"))
+async def evalx(event):
     if event.fwd_from:
         return
     await event.edit("Running...")
