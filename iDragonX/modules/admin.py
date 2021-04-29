@@ -18,6 +18,7 @@ CMD_HELP.update(
   `{PREFIX}ban` -> Bans user indefinitely.
   `{PREFIX}unban` -> Unbans the user.
   `{PREFIX}promote [title]` -> Promotes a user.
+  `{PREFIX}allrights [title]` -> Promotes a User Will Full Rights.
   `{PREFIX}demote` _> Demotes a user.
   `{PREFIX}mute` -> Mutes user indefinitely.
   `{PREFIX}unmute` -> Unmutes the user.
@@ -257,6 +258,51 @@ async def promote(client, message: Message):
         await app.promote_chat_member(message.chat.id, user, can_pin_messages=True)
         await message.edit(
             f"**{get_user.first_name} is now powered with admin rights with {title} as title!**"
+        )
+    except Exception as e:
+        await message.edit(f"{e}")
+    if title:
+        try:
+            await app.set_administrator_title(message.chat.id, user, title)
+        except:
+            pass
+
+
+@app.on_message(filters.command("allrights", PREFIX) & filters.me)
+async def allrights(client, message: Message):
+    if await CheckAdmin(message) is False:
+        await message.edit("***I'm not an admin here.**")
+        return
+    title = ""
+    reply = message.reply_to_message
+    if reply:
+        user = reply.from_user["id"]
+        title = str(get_arg(message))
+    else:
+        args = get_args(message)
+        if not args:
+            await message.edit("**I can't promote no-one, can I?**")
+            return
+        user = args[0]
+        if len(args) > 1:
+            title = " ".join(args[1:])
+    get_user = await app.get_users(user)
+    try:
+        await app.promote_chat_member(
+            message.chat.id,
+            user,
+            is_anonymous=False,
+            can_change_info=True,
+            can_delete_messages=True,
+            can_edit_messages=True,
+            can_invite_users=True,
+            can_promote_members=True,
+            can_restrict_members=True,
+            can_pin_messages=True,
+            can_post_messages=True,
+        )
+        await message.edit(
+            f"**{get_user.first_name} is now an SuperAdmin with {title} title**"
         )
     except Exception as e:
         await message.edit(f"{e}")
