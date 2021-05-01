@@ -32,7 +32,7 @@ def get_args(message):
 def ReplyCheck(message):
     reply_id = None
 
-    if mesaage.reply_to_message:
+    if message.reply_to_message:
         reply_id = message.reply_to_message.message_id
 
     elif not message.from_user.is_self:
