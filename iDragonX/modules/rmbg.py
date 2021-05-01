@@ -28,7 +28,7 @@ async def remove_bg(_, m):
     ):
         if os.path.exists("./downloads/img.jpg"):
             os.remove("./downloads/img.jpg")
-        orig_pic = await c.download_media(
+        orig_pic = await app.download_media(
             message=replied, file_name="./downloads/img.jpg"
         )
         await m.edit_text("`Removing Background...`")
@@ -38,7 +38,7 @@ async def remove_bg(_, m):
             remove_img = orig_pic + "_no_bg.png"
             new_rembg_file = orig_pic.replace(".jpg", "_rembg_app.png")
             shutil.move(remove_img, new_rembg_file)
-            await c.send_document(
+            await app.send_document(
                 chat_id=m.chat.id,
                 document=new_rembg_file,
                 caption="Background removed using iDragonX",
