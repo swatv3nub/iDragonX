@@ -17,7 +17,7 @@ tswift
 GitPython
 heroku3
 python-arq
-psycopg2
+psycopg2-binary
 youtube-search-python
 pytube
 removebg
