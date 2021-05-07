@@ -1,6 +1,7 @@
 import logging
 import sys
 import time
+import aiohttp
 import pyromod.listen
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
@@ -33,6 +34,8 @@ teleapp = TelegramClient(StringSession(TELE_SESSION), api_id=API_ID, api_hash=AP
 
 ARQ_API = "http://35.240.133.234:8000"
 arq = ARQ(ARQ_API)
+
+session = aiohttp.ClientSession()
 
 #cli = MongoClient(MONGO_DB_URI)
 
