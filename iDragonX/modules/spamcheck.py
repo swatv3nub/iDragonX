@@ -2,12 +2,9 @@ import re
 import html
 import asyncio
 import datetime
-import aiohttp
 from pyrogram import Client, filters
-from iDragonX import app, CMD_HELP, get_entity
+from iDragonX import app, CMD_HELP, get_entity, session
 from config import PREFIX, SPAMWATCH_API
-
-session = aiohttp.ClientSession()
 
 CMD_HELP.update(
     {
