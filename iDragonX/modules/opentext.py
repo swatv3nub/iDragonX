@@ -2,8 +2,7 @@ import os
 import html
 import tempfile
 from pyrogram import filters
-from iDragonX import app, progress_callback
-from iDragonX.modules.spamcheck import session
+from iDragonX import app, progress_callback, session
 from config import PREFIX
 
 @app.on_message(filters.me & filters.command('open', PREFIX))
