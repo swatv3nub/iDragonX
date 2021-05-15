@@ -8,7 +8,7 @@ from pyrogram import Client, errors
 from pyrogram.types import Chat, User
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
-from config import API_HASH, API_ID, SESSION, TELE_SESSION
+from config import *
 import logging
 #from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
@@ -23,17 +23,17 @@ CMD_HELP = {}
 
 StartTime = time.time()
 
-API_ID = API_ID
-API_HASH = API_HASH
-SESSION = SESSION
+
+
+
 
 app = Client(SESSION, api_id=API_ID, api_hash=API_HASH)
 
 teleapp = TelegramClient(StringSession(TELE_SESSION), api_id=API_ID, api_hash=API_HASH)
 
 
-ARQ_API = "http://35.240.133.234:8000"
-arq = ARQ(ARQ_API)
+ARQ_API = "http://thearq.tech"
+arq = ARQ(ARQ_API, ARQ_X_API)
 
 session = aiohttp.ClientSession()
 
