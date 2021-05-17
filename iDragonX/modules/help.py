@@ -8,12 +8,13 @@ HELP.update(
         "**Admin**": "ban, unban, promote, demote, kick, mute, unmute, pin, purge, del, invite, delghosts",
         "**Alive**": "alive, ping",
         "**Info**": "whois, id",
-        "**Term**": "eval, evalx, sh",
+        "**Exec**": "exec, cexac, eval, evalx, sh",
         "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, encode, decode",
         "**Sticker**": "kang, stickerinfo",
         "**Music**": "yt, deez, lyrics",
         "**Search**": "go, sof, git, reddit, define",
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
+        "**Voice Chat**": "play, pause, resume, vol, queue"
     }
 )
 
