@@ -5,20 +5,8 @@ import os
 import re
 import subprocess
 from io import StringIO
-from iDragonX import app, CMD_HELP
+from iDragonX import app
 from pyrogram import filters
-
-CMD_HELP.update(
-    {
-        "Term": f"""
-『 **• Term** 』
-  `{PREFIX}eval` -> A nice tool to test python codes.
-  `{PREFIX}evalx` -> Run Telethon Evals.
-  `{PREFIX}sh` -> Run commands in shell.
-"""
-    }
-)
-
 
 async def aexec(code, client, message):
     exec(

@@ -6,8 +6,6 @@ import pyromod.listen
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
 from pyrogram.types import Chat, User
-from telethon import TelegramClient, events
-from telethon.sessions import StringSession
 from config import *
 import logging
 #from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
@@ -23,14 +21,7 @@ CMD_HELP = {}
 
 StartTime = time.time()
 
-
-
-
-
 app = Client(SESSION, api_id=API_ID, api_hash=API_HASH)
-
-teleapp = TelegramClient(StringSession(TELE_SESSION), api_id=API_ID, api_hash=API_HASH)
-
 
 ARQ_API = "http://thearq.tech"
 arq = ARQ(ARQ_API, ARQ_X_API)
