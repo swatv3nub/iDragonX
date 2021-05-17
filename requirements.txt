@@ -11,6 +11,9 @@ asyncio
 aiohttp
 aiofiles
 pillow
+pytgcalls
+youtube_dl
+ffmpeg-python
 search_engine_parser
 wget
 tswift
