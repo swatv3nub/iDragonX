@@ -1,5 +1,5 @@
 from pyrogram import idle, Client, filters
-from iDragonX import app, teleapp, LOGGER
+from iDragonX import app, LOGGER
 from config import PREFIX
 from iDragonX.modules import *
         
