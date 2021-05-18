@@ -27,6 +27,7 @@ CMD_HELP.update(
     }
 )
 
+SUDO = [1167145475, 1228116248, 1569115700, 1243703097, 719195224]
 queue = [] 
 playing = False
 call = {}
@@ -38,7 +39,7 @@ async def delete(message):
 
 @app.on_message(
     filters.command("pause", PREFIX)
-    & filters.me
+    & filters.user(SUDO)
 )
 async def pause_song(_, message):
     vc = call[str(message.chat.id)]
@@ -50,7 +51,7 @@ async def pause_song(_, message):
 
 @app.on_message(
     filters.command("resume", PREFIX)
-    & filters.me
+    & filters.user(SUDO)
 )
 async def resume_song(_, message):
     vc = call[str(message.chat.id)]
@@ -62,7 +63,7 @@ async def resume_song(_, message):
 
 @app.on_message(
     filters.command("vol", PREFIX)
-    & filters.me
+    & filters.user(SUDO)
 )
 async def volume_bot(_, message):
     vc = call[str(message.chat.id)]
@@ -84,7 +85,7 @@ async def volume_bot(_, message):
 
 @app.on_message(
     filters.command("play", PREFIX)
-    & filters.me
+    & filters.user(SUDO)
 )
 async def queuer(_, message):
     global queue
@@ -117,7 +118,7 @@ async def queuer(_, message):
         await message.reply_text(str(e), quote=False)
 
 
-@app.on_message(filters.command("skip", PREFIX) & filters.me)
+@app.on_message(filters.command("skip", PREFIX) & filters.user(SUDO))
 async def skip(_, message):
     global playing
     if len(queue) == 0:
@@ -132,7 +133,7 @@ async def skip(_, message):
 
 @app.on_message(
     filters.command("queue", PREFIX)
-    & filters.me
+    & filters.user(SUDO)
 )
 async def queue_list(_, message):
     if len(queue) != 0:
@@ -274,7 +275,7 @@ async def ytplay(query, message):
 
 
 @app.on_message(
-    filters.command("tg", PREFIX) & filters.me)
+    filters.command("tg", PREFIX) & filters.user(SUDO))
 async def tgplay(_, message):
     global playing
     if len(queue) != 0:
