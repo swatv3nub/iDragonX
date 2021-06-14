@@ -2,7 +2,7 @@ import os
 from config import PREFIX
 from iDragonX import app, CMD_HELP
 from iDragonX.helpers.run import run_cmd
-from pyrogram.types import filters
+from pyrogram import filters
 
 CMD_HELP.update(
     {
