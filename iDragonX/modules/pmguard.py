@@ -1,10 +1,9 @@
 from pyrogram import filters
 import asyncio
-
 from pyrogram.methods import messages
 from iDragonX import app, CMD_HELP
-from iDragonX.helpers.pyrohelper import get_arg, denied_users{PREFIX}
-import iDragonX.database.pmpermitdb as iDragonXdb
+from iDragonX.helpers.pyrohelper import get_arg, denied_users
+import iDragonX.database.pmguarddb as db
 from config import PREFIX
 
 CMD_HELP.update(
@@ -14,7 +13,7 @@ CMD_HELP.update(
   `{PREFIX}pmguard` [on|off] -> Activates or deactivates anti-pm.
   `{PREFIX}setpmmsg` [message or default] -> Sets a custom anti-pm message.
   `{PREFIX}setblockmsg` [message or default] -> Sets custom block message.
-  `{PREFIX}setlimit` [value] -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bamm!.
+  `{PREFIX}setlimit` [value] -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bonked!.
   `{PREFIX}allow` -> Allows a user to PM you.
   `{PREFIX}deny` -> Denies a user to PM you.
   """
@@ -33,10 +32,10 @@ async def pmguard(client, message):
         await message.edit("**I only understand on or off**")
         return
     if arg == "off":
-        await iDragonXdb.set_pm(False)
+        await db.set_pm(False)
         await message.edit("**PM Guard Deactivated**")
     if arg == "on":
-        await iDragonXdb.set_pm(True)
+        await db.set_pm(True)
         await message.edit("**PM Guard Activated**")
 
 
@@ -46,7 +45,7 @@ async def pmguard(client, message):
     if not arg:
         await message.edit("**Set limit to what?**")
         return
-    await iDragonXdb.set_limit(int(arg))
+    await db.set_limit(int(arg))
     await message.edit(f"**Limit set to {arg}**")
 
 
@@ -57,10 +56,10 @@ async def setpmmsg(client, message):
         await message.edit("**What message to set**")
         return
     if arg == "default":
-        await iDragonXdb.set_permit_message(iDragonXdb.PMPERMIT_MESSAGE)
+        await db.set_permit_message(db.PMGUARD_MESSAGE)
         await message.edit("**Anti_PM message set to default**.")
         return
-    await iDragonXdb.set_permit_message(f"`{arg}`")
+    await db.set_permit_message(f"`{arg}`")
     await message.edit("**Custom anti-pm message set**")
 
 
@@ -71,19 +70,19 @@ async def setpmmsg(client, message):
         await message.edit("**What message to set**")
         return
     if arg == "default":
-        await iDragonXdb.set_block_message(iDragonXdb.BLOCKED)
+        await db.set_block_message(db.BLOCKED)
         await message.edit("**Block message set to default**.")
         return
-    await iDragonXdb.set_block_message(f"`{arg}`")
+    await db.set_block_message(f"`{arg}`")
     await message.edit("**Custom block message set**")
 
 
-@app.on_message(filters.command("allow", PREFIX) & filters.me & filters.private)
+@app.on_message(filters.command(["allow", "a"], PREFIX) & filters.me & filters.private)
 async def allow(client, message):
     chat_id = message.chat.id
-    pmpermit, pm_message, limit, block_message = await iDragonXdb.get_pm_settings()
-    await iDragonXdb.allow_user(chat_id)
-    await message.edit(f"**I have allowed [you](tg://user?id={chat_id}) to PM me.**")
+    pmguard, pm_message, limit, block_message = await db.get_pm_settings()
+    await db.allow_user(chat_id)
+    await message.edit(f"**Allowed [{chat_id}](tg://user?id={chat_id}) to PM Me.**")
     async for message in app.search_messages(
         chat_id=message.chat.id, query=pm_message, limit=1, from_user="me"
     ):
@@ -91,12 +90,20 @@ async def allow(client, message):
     USERS_AND_WARNS.update({chat_id: 0})
 
 
-@app.on_message(filters.command("deny", PREFIX) & filters.me & filters.private)
+@app.on_message(filters.command(["deny", "d"], PREFIX) & filters.me & filters.private)
 async def deny(client, message):
     chat_id = message.chat.id
-    await iDragonXdb.deny_user(chat_id)
-    await message.edit(f"**I have denied [you](tg://user?id={chat_id}) to PM me.**")
+    await db.deny_user(chat_id)
+    await message.edit(f"**Denied [{chat_id}](tg://user?id={chat_id}) to PM Me.**")
 
+
+@app.on_message(filters.command("block", PREFIX) & filters.me & filters.private)
+async def blc(_, message):
+    user = message.chat.id
+    msg = "`Successfully Blocked and Reported as spam!`"
+    await app.send_message(user, msg)
+    await app.block_user(user)
+    return
 
 @app.on_message(
     filters.private
@@ -108,7 +115,7 @@ async def deny(client, message):
 )
 async def reply_pm(client, message):
     global FLOOD_CTRL
-    pmpermit, pm_message, limit, block_message = await iDragonXdb.get_pm_settings()
+    pmguard, pm_message, limit, block_message = await db.get_pm_settings()
     user = message.from_user.id
     user_warns = 0 if user not in USERS_AND_WARNS else USERS_AND_WARNS[user]
     if user_warns <= limit - 2:

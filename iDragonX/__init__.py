@@ -8,7 +8,7 @@ from pyrogram import Client, errors
 from pyrogram.types import Chat, User
 from config import *
 import logging
-#from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -23,12 +23,12 @@ StartTime = time.time()
 
 app = Client(SESSION, api_id=API_ID, api_hash=API_HASH)
 
-ARQ_API = "http://thearq.tech"
-arq = ARQ(ARQ_API, ARQ_X_API)
-
 session = aiohttp.ClientSession()
 
-#cli = MongoClient(MONGO_DB_URI)
+ARQ_API = "http://thearq.tech"
+arq = ARQ(ARQ_API, ARQ_X_API, session)
+
+mongo = MongoClient(MONGO_DB_URI)
 
 async def get_entity(client, entity):
     entity_client = client

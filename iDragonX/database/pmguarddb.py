@@ -1,27 +1,26 @@
-from iDragonX import cli
+from iDragonX import mongo
 import asyncio
 
-collection = cli["iDragonX"]["pmpermit"]
+collection = mongo["iDragonX"]["pmguard"]
 
-PMPERMIT_MESSAGE = (
-    "`Ok! Stop Right there Read this first before sending any new messages.\n\n`"
-    "`I'm a bot Protecting this user's PM from any kind of Spam.`"
-    "`Please wait for my Master to come back Online.\n\n`"
-    "`Until then, Don't spam, Or you'll get blocked and reported!`"
+PMGUARD_MESSAGE = (
+    "`I'm a using an userbot in order to protect my PM from any kind of Spam.`"
+    "`Please Wait for Me to come and Check Your Message\n\n`"
+    "`Until then, Don't spam my PM, Or you'll get blocked and reported!`"
 )
 
-BLOCKED = "`Guess You're A Spammer, Blocked Successfully `"
+BLOCKED = "`Spammer Spotted! Successfully Blocked and Reported as Spam.`"
 
 LIMIT = 5
 
 
 async def set_pm(value: bool):
-    doc = {"_id": 1, "pmpermit": value}
+    doc = {"_id": 1, "pmguard": value}
     doc2 = {"_id": "Approved", "users": []}
     r = await collection.find_one({"_id": 1})
     r2 = await collection.find_one({"_id": "Approved"})
     if r:
-        await collection.update_one({"_id": 1}, {"$set": {"pmpermit": value}})
+        await collection.update_one({"_id": 1}, {"$set": {"pmguard": value}})
     else:
         await collection.insert_one(doc)
     if not r2:
@@ -29,7 +28,7 @@ async def set_pm(value: bool):
 
 
 async def set_permit_message(text):
-    await collection.update_one({"_id": 1}, {"$set": {"pmpermit_message": text}})
+    await collection.update_one({"_id": 1}, {"$set": {"pmguard_message": text}})
 
 
 async def set_block_message(text):
@@ -44,11 +43,11 @@ async def get_pm_settings():
     result = await collection.find_one({"_id": 1})
     if not result:
         return False
-    pmpermit = result["pmpermit"]
-    pm_message = result.get("pmpermit_message", PMPERMIT_MESSAGE)
+    pmguard = result["pmguard"]
+    pm_message = result.get("pmguard_message", PMGUARD_MESSAGE)
     block_message = result.get("block_message", BLOCKED)
     limit = result.get("limit", LIMIT)
-    return pmpermit, pm_message, limit, block_message
+    return pmguard, pm_message, limit, block_message
 
 
 async def allow_user(chat):
@@ -76,7 +75,7 @@ async def pm_guard():
     result = await collection.find_one({"_id": 1})
     if not result:
         return False
-    if not result["pmpermit"]:
+    if not result["pmguard"]:
         return False
     else:
         return True
