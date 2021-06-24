@@ -1,8 +1,8 @@
 from pyrogram.types import Message, User
 from pyrogram import Client
 import shlex
-from iDragonX.database.pmpermitdb import get_approved_users, pm_guard
-from iDragonX.database.afkdb import get_afk_status
+from iDragonX.database.pmguarddb import get_approved_users, pm_guard
+#from iDragonX.database.afkdb import get_afk_status
 
 
 def get_arg(message):
@@ -50,7 +50,7 @@ async def denied_users(filter, client: Client, message: Message):
     else:
         return True
         
-async def user_afk(filter, client: Client, message: Message):
+#async def user_afk(filter, client: Client, message: Message):
     check = await get_afk_status()
     if check:
         return True
