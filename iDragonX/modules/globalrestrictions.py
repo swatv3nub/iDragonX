@@ -1,5 +1,5 @@
 from iDragonX import app, CMD_HELP
-from config import PREFIX, LOG_GROUP_ID
+from config import PREFIX, LOG_CHAT
 from pyrogram import filters
 from iDragonX.database.globalcmdsdb import *
 from iDragonX.helpers.pyrohelper import get_arg
@@ -40,7 +40,7 @@ async def gmute(_, message):
     get_user = await app.get_users(user)
     await gmute_user(get_user.id)
     await message.edit(f"**Gmuted {get_user.mention}!**")
-    await app.send_message(LOG_GROUP_ID, f"Gmuted {get_user.mention}")
+    await app.send_message(LOG_CHAT, f"Gmuted {get_user.mention}")
 
 @app.on_message(filters.command("ungmute", PREFIX) & filters.me)
 async def gmute(_, message):
@@ -55,7 +55,7 @@ async def gmute(_, message):
     get_user = await app.get_users(user)
     await ungmute_user(get_user.id)
     await message.edit(f"**Ungmuted {get_user.first_name}!**")
-    await app.send_message(LOG_GROUP_ID, f"Ungmuted {get_user.mention}")
+    await app.send_message(LOG_CHAT, f"Ungmuted {get_user.mention}")
     
 
 
@@ -100,7 +100,7 @@ async def gban(_, message):
             pass
     await gban_user(get_user.id)
     await message.edit(f"**Gbanned {get_user.mention} in {chat_len} chats!**")
-    await app.send_message(LOG_GROUP_ID, f"Gbanned {get_user.mention}")
+    await app.send_message(LOG_CHAT, f"Gbanned {get_user.mention}")
 
 
 @app.on_message(filters.command("ungban", PREFIX) & filters.me)
@@ -127,7 +127,7 @@ async def ungban(_, message):
             pass
     await gban_user(get_user.id)
     await message.edit(f"**Ungbanned {get_user.mention} in {chat_len} chats!**")
-    await app.send_message(LOG_GROUP_ID, f"Ungbanned {get_user.mention}")
+    await app.send_message(LOG_CHAT, f"Ungbanned {get_user.mention}")
 
     
 @app.on_message(filters.group & filters.incoming)
