@@ -1,8 +1,8 @@
 API_HASH = "f4e33d4c54ec05320948acb030074734"
 API_ID = 1557615
-MONGO_DB_URI = ""
+MONGO_DB_URI = "mongodb+srv://Jivadevs1965:ET7UPzzooc4HmJ9x@cluster0.jwt5r.mongodb.net/test?retryWrites=true&w=majority"
 RMBG_API = "QmPbP7g9BLWjBhoKkBG3Tkfa"
-TELE_SESSION = "mongodb+srv://Jivadevs1965:ET7UPzzooc4HmJ9x@cluster0.jwt5r.mongodb.net/test?retryWrites=true&w=majority"
+TELE_SESSION = ""
 SESSION = "BQBHjLQof_hi3tvGiHpEJI3pnWOplMR0JmmfzAj2OkfkKEfjjGhZXsvjSE_GVlRV3F36wyVLLZtvYJM0bkck4unyvFeuLOI_oNDWR2wB9KetASLPzAwxzIpjqSXWTI2W0vTwAP0YcbKu6RCDGQdLvhv7Q0sc1i_yBZDMhRO9loIIPlMzVi6Ulnt3uSM_YtVxQjvJZ3JJFUKkss-AAypI6gatXuot68CoOgULtp9MMw0cahHwAk_oOkuxsG8IJ3dqdw5cf1yd6Y-a4RKe3WR6IamYyZyHTW3VEkdrPHcuNU6r9XxI4g41ADJM_Mc9qnpCuYlo-KDDyC4wYQYJNH6Vpf33RZE6AwA"
 PREFIX = "."
 LOG_CHAT = -1001245971992
