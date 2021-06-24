@@ -17,9 +17,9 @@ CMD_HELP.update(
     }
 )
 
-async def iter_chats(client):
+async def iter_chats(app):
     chats = []
-    async for dialog in client.iter_dialogs():
+    async for dialog in app.iter_dialogs():
         if dialog.chat.type in ["supergroup", "channel"]:
             chats.append(dialog.chat.id)
     return chats
@@ -60,7 +60,7 @@ async def gmute(_, message):
 
 
 @app.on_message(filters.group & filters.incoming)
-async def check_and_del(client, message):
+async def check_and_del(_, message):
     if not message:
         return
     try:
@@ -87,7 +87,7 @@ async def gban(_, message):
             await message.edit("**GBan Who?**")
             return
     get_user = await app.get_users(user)
-    chat_dict = await iter_chats(client)
+    chat_dict = await iter_chats(app)
     chat_len = len(chat_dict)
     if not chat_dict:
         message.edit("No Chats Found!")
@@ -114,7 +114,7 @@ async def ungban(_, message):
             await message.edit("**Ungban Who?**")
             return
     get_user = await app.get_users(user)
-    chat_dict = await iter_chats(client)
+    chat_dict = await iter_chats(app)
     chat_len = len(chat_dict)
     if not chat_dict:
         message.edit("No Chats Found!")
@@ -151,6 +151,6 @@ async def check_and_ban(_, message):
         return
     try:
         await app.kick_chat_member(message.chat.id, int(user))
-        await client.send_message(message.chat.id, f"Gbanned User Spotted: [{user}](tg://user?id={user})\nSuccessfully Banned!")
+        await app.send_message(message.chat.id, f"Gbanned User Spotted: [{user}](tg://user?id={user})\nSuccessfully Banned!")
     except:
         return
