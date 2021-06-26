@@ -1,4 +1,5 @@
 from pyrogram import filters
+from pyrogram.raw.functions.account import ReportPeer
 import asyncio
 from pyrogram.methods import messages
 from iDragonX import app, CMD_HELP
@@ -102,6 +103,11 @@ async def blc(_, message):
     user = message.chat.id
     msg = "`Successfully Blocked and Reported as spam!`"
     await app.send_message(user, msg)
+    report = ReportPeer(
+                   peer=user,
+                   reason="Spamming My Inbox"
+                   )
+    await app.send(report)
     await app.block_user(user)
     return
 
@@ -133,5 +139,10 @@ async def reply_pm(client, message):
         await message.reply(pm_message, disable_web_page_preview=True)
         return
     await message.reply(block_message, disable_web_page_preview=True)
+    report = ReportPeer(
+                   peer=message.chat.id,
+                   reason="Spamming My Inbox"
+                   )
+    await app.send(report)
     await app.block_user(message.chat.id)
     USERS_AND_WARNS.update({user: 0})

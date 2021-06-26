@@ -24,7 +24,7 @@ async def admin_check(message: Message) -> bool:
     return check_status.status in admin_strings
 
 
-@app.on_message(filters.command("purge", PREFIX) & filters.me)
+@app.on_message(filters.command("purge", PREFIX) & filters.me & ~filters.private)
 async def purge_message(client, message):
     if message.chat.type in (("supergroup", "channel")):
         is_admin = await admin_check(message)
