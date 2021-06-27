@@ -1,7 +1,6 @@
 TgCrypto
 cryptg
 pyrogram
-telethon
 pyromod
 google_trans_new
 motor
@@ -25,3 +24,5 @@ youtube-search-python
 pytube
 removebg
 pybase64
+telegraph
+sqlalchemy

@@ -15,8 +15,9 @@ HELP.update(
         "**Sticker**": "kang, stickerinfo",
         "**Music**": "yt, deez, lyrics",
         "**Search**": "go, sof, git, reddit, define",
+        "**Telegraph**": "tgphoto, tgvideo, tggif",
         "**SpamCheck**": "spamcheck, anon, deai, spb, sw, cas, rose",
-        "**Voice Chat**": "play, pause, resume, vol, queue"
+        "**VoiceChat**": "play, pause, resume, vol, queue"
     }
 )
 
