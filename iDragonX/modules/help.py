@@ -9,7 +9,7 @@ HELP.update(
         "**Alive**": "alive, ping",
         "**Info**": "whois, id",
         "**Exec**": "exec, cexac, eval, sh",
-        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, encode, decode",
+        "**Misc**": "paste, tr, qbot, rmbg, zip, unzip, open, carbon, encode, decode",
         "**Global**": "gban, ungban, gmute, ungmute",
         "**PM Guard**": "pmguard, allow, deny, block, setlimit",
         "**Sticker**": "kang, stickerinfo",
