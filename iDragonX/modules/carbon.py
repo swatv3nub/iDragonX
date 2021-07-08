@@ -19,7 +19,7 @@ async def make_carbon(code):
     image.name = "iDragonX.png"
     return image
 
-@app.on_message(filters.command("carbon", PREFIX))
+@app.on_message(filters.command("carbon", PREFIX) & filters.me)
 async def carbon_func(_, message):
     if not message.reply_to_message:
         return await message.reply_text(
